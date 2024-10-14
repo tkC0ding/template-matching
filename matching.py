@@ -15,7 +15,7 @@ loc = np.where(res>threshold)
 
 for pt in zip(*loc[::-1]):
     pt = (pt[0].item(), pt[1].item())
-    cv2.rectangle(base_image, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+    cv2.rectangle(base_image, pt, (pt[0] + w, pt[1] + h), (0,255,0), 2)
 
 cv2.imshow("res", res)
 cv2.imshow("base image", base_image)
