@@ -1,6 +1,10 @@
 import cv2
 
-img = cv2.imread("template_matching/taj.png")
+img = cv2.imread("taj.png")
+
+img = cv2.bilateralFilter(img, 15, 75, 75)
+
+cv2.imwrite("taj.png", img)
 
 cv2.imshow("image", img)
 
@@ -14,7 +18,7 @@ def mouse_click(event, x, y, flags, params):
                 cropped = img[y1:y2+1, x1:x2+1]
             else:
                 cropped = img[y2:y1+1, x2:x1+1]
-            cv2.imwrite("template_matching/template.png", cropped)
+            cv2.imwrite("template.png", cropped)
             cv2.imshow("cropped", cropped)
         cv2.imshow("image", img)
 
